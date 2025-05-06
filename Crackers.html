@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crackers City - Colorful World</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Crackers.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Balaji Crackers</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="feature.html">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="Pricing.html ">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-disabled="true" href="Contact.html">Contact Us</a>
+              </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-disabled="true" href="Product.html">Product</a>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <h1 class="content ">✨ SparkleBurst Crackers ✨</h1>
+      <p class="contenT1 ">
+        Welcome to SparkleBurst – your one-stop destination for dazzling crackers and fireworks! 
+        Light up your celebrations with our wide range of safe, colorful, and eco-friendly crackers. 
+        Whether it's Diwali, New Year's Eve, or a grand wedding, our fireworks are designed to bring 
+        sparkle to every moment. Explore our collection and experience the joy of celebration like never before!
+      </p>
+      <script>
+        // Create sparkles randomly on the screen
+        function createSparkle() {
+          const sparkle = document.createElement('div');
+          sparkle.classList.add('sparkle');
+          sparkle.style.top = Math.random() * window.innerHeight + 'px';
+          sparkle.style.left = Math.random() * window.innerWidth + 'px';
+          document.body.appendChild(sparkle);
+          setTimeout(() => sparkle.remove(), 1000);
+        }
+    
+        // Generate sparkles continuously
+        setInterval(createSparkle, 300);
+      </script>
+      <div class="container py-5">
+        <h2 class="text-center mb-4">🎆 Crackers Mega Sale - <span class="text-danger">80% OFF</span></h2>
+        <div class="row" id="crackerList">
+          <!-- Product Cards will be inserted here by JS -->
+        </div>
+      </div>
+      
+      <script>
+        const products = [
+          { name: "Kuruvi", image: "istockphoto-185835604-612x612.jpg" },
+          { name: "Lakshmi", image: "orange-firework-background-free-vector.jpg" },
+          { name: "Lakshmi Deluxe", image: "shiny-diwali-crackers-firework-celebration-illustration_1017-21580.avif" },
+          { name: "Gold Lakshmi", image: "png-transparent-crackers-shop-firecracker-fireworks-holidays-diwali-flower-thumbnail.png" },
+          { name: "Kumki", image: "pngtree-colorful-firecrackers-png-image_2352079.jpg" },
+          { name: "Red Bijili", image: "pngtree-diwali-crackers-png-image_2348221.jpg" }
+        ];
+      
+        function getRandomPrice() {
+          return Math.floor(Math.random() * 200) + 100;
+        }
+      
+        function getRandomQty() {
+          return Math.floor(Math.random() * 10) + 1;
+        }
+      
+        const crackerList = document.getElementById("crackerList");
+      
+        products.forEach(product => {
+          const price = getRandomPrice();
+          const qty = getRandomQty();
+          const discounted = Math.floor(price * 0.2); // 80% off
+          
+          const card = document.createElement("div");
+          card.className = "col-md-4 mb-4";
+          card.innerHTML = `
+            <div class="card position-relative">
+              <div class="discount-badge">80% OFF</div>
+              <img src="${product.image}" class="card-img-top product-img" alt="${product.name}">
+              <div class="card-body text-center">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="card-text text-muted">Qty: ${qty} pcs</p>
+                <p><s>₹${price}</s> <strong class="text-success">₹${discounted}</strong></p>
+                <button class="btn btn-order">Order Now</button>
+              </div>
+            </div>
+          `;
+          crackerList.appendChild(card);
+        });
+      </script>
+      <section style="background-color: #222; color: #fff; padding: 30px; text-align: center;">
+        <h2 style="color: #f90; font-size: 2rem; margin-bottom: 20px;">WHY CHOOSING US!</h2>
+        <ul style="list-style: none; padding: 0; font-size: 1.2rem; line-height: 2;">
+          <li>💣 PREMIUM QUALITY CRACKERS</li>
+          <li>🔥 DIRECT FROM SIVAKASI FACTORY</li>
+          <li>🎆 HUGE VARIETY – SOUND, SKY SHOTS, SPARKLERS & MORE</li>
+          <li>💰 BUDGET-FRIENDLY COMBO PACKS</li>
+          <li>🚚 FAST & SAFE DELIVERY</li>
+          <li>🎁 SPECIAL GIFT BOXES FOR EVERY OCCASION</li>
+          <li>📞 24/7 CUSTOMER SUPPORT</li>
+        </ul>
+      </section>
+
+  <h2>CONTACT US</h2>
+
+  <!-- WhatsApp Button -->
+  <a class="button" href="https://wa.me/7708406689" target="_blank">
+    Chat on WhatsApp
+  </a>
+
+  <!-- Email Button -->
+  <a class="button" href="mailto:learnyourself93@gmail.com">
+    Send Email
+  </a>
+
+  <!-- Order Now Button -->
+  <button class="button" onclick="orderNow()">
+    Order Now
+  </button>
+
+  <script>
+    function orderNow() {
+      // Example action: redirect to WhatsApp
+      const phoneNumber = '7708406689'; // your WhatsApp number without + sign
+      const message = encodeURIComponent("Hi, I'm interested in placing an order for crackers!");
+      const url = `https://wa.me/${phoneNumber}?text=${message}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
+
+
+
+      
+      
+    
+    </body>
+    </html>
+    
+  
+</body>
+</html>
